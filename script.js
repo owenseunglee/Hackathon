@@ -14,14 +14,8 @@ const questions = [
     },
   ];
 
-
-let container = document.querySelector('.container')
-let choices = document.getElementsByClassName('child-container')
-
-choices.map((choice) => {
-    console.log('choice', choice)
-})
-
+const choices = document.querySelectorAll('.child-container')
+console.log(choices)
 
 
 questions.map((element) => {
