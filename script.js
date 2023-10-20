@@ -1,13 +1,31 @@
 let currentQuestionIndex = 0;
 const questions = [
   {
-    key: 1,
+    index: 1,
     question: "Who was the 16th President of the United States?",
     choices: ["wrong", "wrong", "wrong", "correct"],
     correctAnswer: "correct",
   },
   {
-    key: 2,
+    index: 2,
+    question: "Who was the 16th President of the United States?",
+    choices: ["correct", "wrong", "wrong", "wrong"],
+    correctAnswer: "correct",
+  },
+  {
+    index: 3,
+    question: "Who was the 16th President of the United States?",
+    choices: ["wrong", "correct", "wrong", "wrong"],
+    correctAnswer: "correct",
+  },
+  {
+    index: 4,
+    question: "Who was the 16th President of the United States?",
+    choices: ["wrong", "wrong","correct", "wrong"],
+    correctAnswer: "correct",
+  },
+  {
+    index: 5,
     question: "Who was the 16th President of the United States?",
     choices: ["correct", "wrong", "wrong", "wrong"],
     correctAnswer: "correct",
@@ -16,28 +34,22 @@ const questions = [
 
 const choices = document.querySelectorAll(".child-container");
 
-const displayQuestion = (question) => {
-  Array.from(choices).forEach((choiceElement, index) => {
-    choiceElement.textContent = question.choices[index];
+Array.from(choices).forEach((choiceElement, index) => {
+  choiceElement.textContent = questions[currentQuestionIndex].choices[index];
 
-    choiceElement.addEventListener("click", () => {
-      if (question.choices[index] === question.correctAnswer) {
-        console.log("Correct!");
-      } else {
-        console.log("Incorrect!");
-      }
-      currentQuestionIndex > questions.length ? console.log('Quiz Completed') : console.log('Still in Progress')
-    });
+  choiceElement.addEventListener("click", () => {
+    if (questions[currentQuestionIndex].choices[index] === questions[currentQuestionIndex].correctAnswer) {
+      console.log("Correct!");
+      currentQuestionIndex++;
+    } else {
+      console.log("Incorrect!");
+    }
+    if (currentQuestionIndex < questions.length) {
+      Array.from(choices).forEach((choiceElement, index) => {
+        choiceElement.textContent = questions[currentQuestionIndex].choices[index];
+      });
+    } else {
+      console.log('Quiz Completed');
+    }
   });
-};
-
-displayQuestion(questions[currentQuestionIndex]);
-
-questions.map((element) => {
-  console.log(element.key);
-  console.log(element.choices);
-  const correctAnswer = element.correctAnswer;
-  for (let choice of element.choices) {
-    choice == correctAnswer ? console.log("correct") : console.log("incorrect");
-  }
 });
