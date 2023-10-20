@@ -21,8 +21,16 @@ const questions = [
     },
 ];
 
+
+const containers = document.querySelectorAll('.child-container');
+const container = document.querySelector('.container')
+
 function displayQuestion(question) {
     const userSelectedAnswer = 'correct'; 
+    const answers = [question.answer1, question.answer2, question.answer3, question.answer4];
+    containers.forEach((container, index) => {
+        containers.textContent = answers[index];
+    });
     if (userSelectedAnswer === question.correctAnswer) {
         console.log('Correct');
         currentQuestionIndex++;
