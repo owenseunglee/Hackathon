@@ -1,50 +1,35 @@
 let currentQuestionIndex = 0;
-
 const questions = [
     {
-        key: 1,
-        question: 'Who was the 16th President of the United States?',
-        answer1: 'wrong',
-        answer2: 'wrong',
-        answer3: 'correct',
-        answer4: 'wrong',
-        correctAnswer: 'correct'
+      key: 1,
+      question: "Who was the 16th President of the United States?",
+      choices: ["wrong", "wrong", "wrong", "correct"],
+      correctAnswer: "correct",
     },
     {
-        key: 2,
-        question: 'Who was the 16th President of the United States?',
-        answer1: 'wrong',
-        answer2: 'correct',
-        answer3: 'wrong',
-        answer4: 'wrong',
-        correctAnswer: 'correct'
+      key: 2,
+      question: "Who was the 16th President of the United States?",
+      choices: ["correct", "wrong", "wrong", "wrong"],
+      correctAnswer: "correct",
     },
-];
+  ];
 
 
-const containers = document.querySelectorAll('.child-container');
-const container = document.querySelector('.container')
+let container = document.querySelector('.container')
+let choices = document.getElementsByClassName('child-container')
 
-function displayQuestion(question) {
-    const userSelectedAnswer = 'correct'; 
-    const answers = [question.answer1, question.answer2, question.answer3, question.answer4];
-    containers.forEach((container, index) => {
-        containers.textContent = answers[index];
-    });
-    if (userSelectedAnswer === question.correctAnswer) {
-        console.log('Correct');
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            displayQuestion(questions[currentQuestionIndex]);
-        } else {
-            console.log('correct');
-        }
-    } else {
-        console.log('wrong');
-    }
-}
-
-displayQuestion(questions[currentQuestionIndex]);
+choices.map((choice) => {
+    console.log('choice', choice)
+})
 
 
-let score = 0
+
+questions.map((element) => {
+  console.log(element.key);
+  console.log(element.choices);
+  const correctAnswer = element.correctAnswer
+  for (let choice of element.choices) {
+    choice == correctAnswer ? console.log("correct") : console.log("incorrect");
+  }
+});
+
