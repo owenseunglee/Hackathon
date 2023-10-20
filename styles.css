@@ -5,12 +5,30 @@
     grid-template-rows: auto auto;
 }
 
+
 .child-container{
     display:grid;
     justify-content: center;
     align-content: center;
     cursor: pointer;
     color: white;
+}
+
+.topic-container{
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    border-style: solid;
+    border-radius: 3vh;
+    margin: 5vh;
+    cursor: pointer;
+}
+
+.icon-container{
+    justify-content: center;
+    height: 25vh;
+    width: 25vh;
+    align-content: center;
 }
 
 .child-container:hover{
