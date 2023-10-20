@@ -14,11 +14,32 @@ const questions = [
     },
   ];
 
+
   const choices = document.querySelectorAll('.child-container');
-  Array.from(choices).map((choice) => {
-      console.log(choice.textContent);
-  });
   
+  const displayQuestion = (question) => {
+      Array.from(choices).forEach((choiceElement, index) => {
+  
+         choiceElement.textContent = question.choices[index];
+  
+         choiceElement.addEventListener('click', () => {
+              if (question.choices[index] === question.correctAnswer) { 
+                  console.log("Correct!");
+              } else {
+                  console.log("Incorrect!");
+              }
+  
+              currentQuestionIndex++;
+              if (currentQuestionIndex < questions.length) {
+                  displayQuestion(questions[currentQuestionIndex]);
+              } else {
+                  console.log("Quiz completed!");
+              }
+          });
+      });
+  };
+  
+  displayQuestion(questions[currentQuestionIndex]);
 
 questions.map((element) => {
   console.log(element.key);
