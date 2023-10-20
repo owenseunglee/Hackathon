@@ -14,9 +14,11 @@ const questions = [
     },
   ];
 
-const choices = document.querySelectorAll('.child-container')
-console.log(choices)
-
+  const choices = document.querySelectorAll('.child-container');
+  Array.from(choices).map((choice) => {
+      console.log(choice.textContent);
+  });
+  
 
 questions.map((element) => {
   console.log(element.key);
