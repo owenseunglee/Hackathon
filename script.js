@@ -166,6 +166,7 @@ topics.forEach((topic) => {
       if (topicTitle.trim().toLowerCase() == category[0].topic.trim().toLowerCase()) {
         current_topic = category
         console.log(topicTitle)
+        localStorage.setItem('current_topic', JSON.stringify(current_topic));
         window.location.href = 'gameboard.html';
       }
     }
@@ -173,6 +174,7 @@ topics.forEach((topic) => {
 });
 
 if (window.location.pathname.includes("gameboard.html")) {
+  const current_topic = JSON.parse(localStorage.getItem('current_topic'));
   const restartBtn = document.getElementById("restart-btn");
   const choices = document.querySelectorAll(".child-container");
   const question = document.getElementById("question");
