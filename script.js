@@ -45,9 +45,8 @@ displayScore.textContent = score;
 document.body.appendChild(displayScore);
 
 let activeThumbsUp = document.querySelector(".thumbs-up-active");
-activeThumbsUp.style.transform = "translateX(50vw)";
 let activeThumbsDown = document.querySelector(".thumbs-down-active");
-activeThumbsDown.style.transform = "translateX(50vw)";
+const restartLevel = document.querySelector('.restart-icon')
 
 
 let timer;
@@ -73,18 +72,19 @@ function correctAnswer() {
   score++;
   currentQuestionIndex++;
   displayScore.textContent = score;
-  activeThumbsUp.style.transform = "translateX(0vw)";
+  activeThumbsUp.style.transform = "translateX(15vw)";
   
   clearInterval(timer);
   updateQuestion();
   startTimer();
 
   setTimeout(function () {
-    activeThumbsUp.style.transform = "translateX(50vw)";
+    activeThumbsUp.style.transform = "translateX(0vw)";
   }, 1000);
 }
 
 function wrongAnswer() {
+  currentQuestionIndex++;
   activeThumbsDown.style.transform = "translateX(0vw)";
   currentQuestionIndex++;
 
@@ -114,6 +114,13 @@ function restartGame() {
   shuffleArray(questions);
   startTimer();
   updateQuestion()
+}
+
+function resetLevel() {
+  score = 0;
+  displayScore.textContent = score;
+  currentQuestionIndex = 0;
+  updateQuestion();
 }
 
 function gameFinished() {
@@ -160,3 +167,7 @@ Array.from(choices).forEach((choiceElement, index) => {
 
 startTimer();
 updateQuestion();
+
+restartLevel.addEventListener('click', () => {
+  resetLevel()
+})
