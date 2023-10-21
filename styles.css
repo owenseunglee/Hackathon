@@ -86,3 +86,16 @@ body{
 .thumbs-up-active{
     transform: translate(50vw)
 }
+
+.thumbs-down {
+    position: absolute;
+    height: 350px;
+    top: 25vh;
+    right: 0;
+    z-index: 2;
+    transition: transform .3s ease-in-out;
+}
+
+.thumbs-down-active{
+    transform: translate(50vw)
+}
