@@ -56,12 +56,12 @@ function startTimer(){
   var sec = 10;
   timer = setInterval(()=>{
     timerElement.innerHTML = sec;
-    if (sec <= 0) {
+    if (sec == 0) {
       clearInterval(timer);
-      currentQuestionIndex++;
-      updateQuestion();
       if (currentQuestionIndex < questions.length) {
         startTimer();
+        currentQuestionIndex++
+        updateQuestion()
       }
     }
     sec--;
@@ -73,7 +73,6 @@ function correctAnswer() {
   currentQuestionIndex++;
   displayScore.textContent = score;
   activeThumbsUp.style.transform = "translateX(15vw)";
-  
   clearInterval(timer);
   updateQuestion();
   startTimer();
@@ -86,8 +85,6 @@ function correctAnswer() {
 function wrongAnswer() {
   currentQuestionIndex++;
   activeThumbsDown.style.transform = "translateX(0vw)";
-  currentQuestionIndex++;
-
   clearInterval(timer);
   updateQuestion();
   startTimer();
