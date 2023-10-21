@@ -95,6 +95,7 @@ h1{
   padding: 3vh 4vh;
   border-radius: 2vh;
   color: black;
+  border-style: solid;
 }
 
 .display-score {
