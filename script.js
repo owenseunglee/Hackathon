@@ -271,3 +271,6 @@ if (window.location.pathname.includes("gameboard.html")) {
   // Reloads page for current question
   updateQuestion();
 }
+restartLevel.addEventListener('click', () => {
+  resetLevel()
+})
