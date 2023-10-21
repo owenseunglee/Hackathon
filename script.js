@@ -208,7 +208,7 @@ if (window.location.pathname.includes("gameboard.html")) {
       timerElement.innerHTML = sec;
       if (sec == 0) {
         clearInterval(timer);
-        if (currentQuestionIndex < questions.length) {
+        if (currentQuestionIndex < current_topic.length) {
           startTimer();
           currentQuestionIndex++
           updateQuestion()
@@ -255,7 +255,7 @@ if (window.location.pathname.includes("gameboard.html")) {
     score = 0;
     displayScore.textContent = score;
     currentQuestionIndex = 0;
-    shuffleArray(questions);
+    shuffleArray(current_topic);
     startTimer();
     updateQuestion()
   }
@@ -316,5 +316,7 @@ if (window.location.pathname.includes("gameboard.html")) {
   
   restartLevel.addEventListener("click", () => {
     resetLevel();
+    clearInterval(timer)
+    startTimer();
   });
 }
