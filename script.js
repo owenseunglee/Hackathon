@@ -36,6 +36,8 @@ const choices = document.querySelectorAll(".child-container");
 const question = document.getElementById('question')
 const gameEndPopup = document.querySelector('.game-end-popup');
 const overlay = document.querySelector('.overlay');
+let activeThumbsUp = document.querySelector('.thumbs-up-active')
+activeThumbsUp.style.transform = 'translateX(50vw)';
 let currentQuestionIndex = 0;
 let score = 0
 
@@ -44,10 +46,15 @@ displayScore.className = 'display-score'
 displayScore.textContent = score
 document.body.appendChild(displayScore)
 
+
 function incrementScore() {
   score++
   currentQuestionIndex++
   displayScore.textContent = score
+  activeThumbsUp.style.transform = 'translateX(0vw)';
+  setTimeout(function(){
+    activeThumbsUp.style.transform = 'translateX(50vw)'
+  }, 1000)
 }
 
 function shuffleArray(array) {
