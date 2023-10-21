@@ -89,15 +89,15 @@ body {
 
 .thumbs-down {
   position: absolute;
-  height: 350px;
+  height: 180px;
   top: 25vh;
   right: 0;
   z-index: 2;
   transition: transform 0.3s ease-in-out;
 }
-@media (max-height:715px) {
+@media (min-height: 715px) {
   .thumbs-down{
-    height:180px;
+    height:350px;
   }  
 }
 
