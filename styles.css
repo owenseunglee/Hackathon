@@ -1,5 +1,5 @@
-body{
-    overflow: hidden;
+body {
+  overflow: hidden;
 }
 
 .container {
@@ -75,27 +75,38 @@ body{
 }
 
 .thumbs-up {
-    position: absolute;
-    height: 350px;
-    top: 25vh;
-    right: 0;
-    z-index: 2;
-    transition: transform .3s ease-in-out;
+  position: absolute;
+  height: 350px;
+  top: 25vh;
+  right: 0;
+  z-index: 2;
+  transition: transform 0.3s ease-in-out;
 }
 
-.thumbs-up-active{
-    transform: translate(50vw)
+.thumbs-up-active {
+  transform: translate(50vw);
 }
 
 .thumbs-down {
-    position: absolute;
-    height: 350px;
-    top: 25vh;
-    right: 0;
-    z-index: 2;
-    transition: transform .3s ease-in-out;
+  position: absolute;
+  height: 350px;
+  top: 25vh;
+  right: 0;
+  z-index: 2;
+  transition: transform 0.3s ease-in-out;
 }
 
-.thumbs-down-active{
-    transform: translate(50vw)
+.thumbs-down-active {
+  transform: translate(50vw);
+}
+
+.popup-container {
+  display: flex;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightgrey;
 }
