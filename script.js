@@ -58,6 +58,7 @@ function correctAnswer() {
 }
 
 function wrongAnswer() {
+  currentQuestionIndex++;
   activeThumbsDown.style.transform = "translateX(0vw)";
   setTimeout(function () {
     activeThumbsDown.style.transform = "translateX(50vw)";
