@@ -185,6 +185,7 @@ if (window.location.pathname.includes("gameboard.html")) {
   const question = document.getElementById("question");
   const gameEndPopup = document.querySelector(".game-end-popup");
   const overlay = document.querySelector(".overlay");
+  const restartLevel = document.querySelector('.restart-icon')
   let currentQuestionIndex = 0;
   let score = 0;
 
@@ -228,6 +229,13 @@ if (window.location.pathname.includes("gameboard.html")) {
     displayScore.textContent = score;
     currentQuestionIndex = 0;
     shuffleArray(current_topic);
+    updateQuestion();
+  }
+
+  function resetLevel() {
+    score = 0;
+    displayScore.textContent = score;
+    currentQuestionIndex = 0;
     updateQuestion();
   }
 
