@@ -110,3 +110,12 @@ body {
   justify-content: center;
   background-color: lightgrey;
 }
+
+.restart-icon{
+  position: absolute;
+  top: 60px;
+  right: 7.5px;
+  height: 30px;
+  z-index: 3;
+  cursor: pointer;
+}

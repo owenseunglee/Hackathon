@@ -46,6 +46,7 @@ document.body.appendChild(displayScore);
 
 let activeThumbsUp = document.querySelector(".thumbs-up-active");
 let activeThumbsDown = document.querySelector(".thumbs-down-active");
+const restartLevel = document.querySelector('.restart-icon')
 
 function correctAnswer() {
   score++;
@@ -79,6 +80,13 @@ function restartGame() {
   displayScore.textContent = score;
   currentQuestionIndex = 0;
   shuffleArray(questions);
+  updateQuestion();
+}
+
+function resetLevel() {
+  score = 0;
+  displayScore.textContent = score;
+  currentQuestionIndex = 0;
   updateQuestion();
 }
 
@@ -124,3 +132,7 @@ Array.from(choices).forEach((choiceElement, index) => {
 
 // Reloads page for current question
 updateQuestion();
+
+restartLevel.addEventListener('click', () => {
+  resetLevel()
+})
