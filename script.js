@@ -113,6 +113,10 @@ Array.from(choices).forEach((choiceElement, index) => {
     ) {
       correctAnswer();
     } else {
+      let correctChoice = Array.from(choices).find((choice) =>
+        choice.textContent.includes(questions[currentQuestionIndex].correctAnswer)
+      );
+      console.log(correctChoice);
       wrongAnswer();
     }
     updateQuestion();
