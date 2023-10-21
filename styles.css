@@ -28,11 +28,16 @@ h1{
     cursor: pointer;
 }
 
+.topic-container:hover{
+  
+}
+
 .icon-container{
     justify-content: center;
     height: 25vh;
     width: 25vh;
     align-content: center;
+    text-align: center;
 }
 
 .child-container:hover{
