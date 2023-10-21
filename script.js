@@ -163,29 +163,31 @@ topics.forEach((topic) => {
   topic.addEventListener("click", () => {
     const topicTitle = topic.querySelector(".topic-title").textContent;
     for (let category of categories) {
-      if (topicTitle.trim().toLowerCase() == category[0].topic.trim().toLowerCase()) {
-        current_topic = category
-        console.log(topicTitle)
-        localStorage.setItem('current_topic', JSON.stringify(current_topic));
-        window.location.href = 'gameboard.html';
+      if (
+        topicTitle.trim().toLowerCase() ==
+        category[0].topic.trim().toLowerCase()
+      ) {
+        current_topic = category;
+        console.log(topicTitle);
+        localStorage.setItem("current_topic", JSON.stringify(current_topic));
+        window.location.href = "gameboard.html";
       }
     }
   });
 });
 
-
-if (window.location.pathname.includes("homepage.html")){
-  localStorage.removeItem('current_topic');
+if (window.location.pathname.includes("homepage.html")) {
+  localStorage.removeItem("current_topic");
 }
 
 if (window.location.pathname.includes("gameboard.html")) {
-  const current_topic = JSON.parse(localStorage.getItem('current_topic'));
+  const current_topic = JSON.parse(localStorage.getItem("current_topic"));
   const restartBtn = document.getElementById("restart-btn");
   const choices = document.querySelectorAll(".child-container");
   const question = document.getElementById("question");
   const gameEndPopup = document.querySelector(".game-end-popup");
   const overlay = document.querySelector(".overlay");
-  const restartLevel = document.querySelector('.restart-icon')
+  const restartLevel = document.querySelector(".restart-icon");
   let currentQuestionIndex = 0;
   let score = 0;
 
@@ -197,6 +199,25 @@ if (window.location.pathname.includes("gameboard.html")) {
   let activeThumbsUp = document.querySelector(".thumbs-up-active");
   let activeThumbsDown = document.querySelector(".thumbs-down-active");
 
+  let timer;
+  let timerElement = document.getElementById("timer");
+
+  function startTimer() {
+    var sec = 10;
+    timer = setInterval(() => {
+      timerElement.innerHTML = sec;
+      if (sec <= 0) {
+        clearInterval(timer);
+        currentQuestionIndex++;
+        updateQuestion();
+        if (currentQuestionIndex < questions.length) {
+          startTimer();
+        }
+      }
+      sec--;
+    }, 1000);
+  }
+
   function correctAnswer() {
     score++;
     currentQuestionIndex++;
@@ -205,6 +226,9 @@ if (window.location.pathname.includes("gameboard.html")) {
     setTimeout(function () {
       activeThumbsUp.style.transform = "translateX(0vw)";
     }, 1000);
+    clearInterval(timer);
+    updateQuestion();
+    startTimer();
   }
 
   function wrongAnswer() {
@@ -213,6 +237,9 @@ if (window.location.pathname.includes("gameboard.html")) {
     setTimeout(function () {
       activeThumbsDown.style.transform = "translateX(50vw)";
     }, 1000);
+    clearInterval(timer);
+    updateQuestion();
+    startTimer();
   }
 
   function shuffleArray(array) {
@@ -240,6 +267,7 @@ if (window.location.pathname.includes("gameboard.html")) {
   }
 
   function gameFinished() {
+    clearInterval(timer);
     gameEndPopup.classList.remove("hide");
     overlay.classList.remove("hide");
   }
@@ -282,9 +310,9 @@ if (window.location.pathname.includes("gameboard.html")) {
   });
 
   // Reloads page for current question
+  startTimer();
   updateQuestion();
-  restartLevel.addEventListener('click', () => {
-    resetLevel()
-  })
+  restartLevel.addEventListener("click", () => {
+    resetLevel();
+  });
 }
-
