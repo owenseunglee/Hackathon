@@ -51,12 +51,12 @@ activeThumbsDown.style.transform = "translateX(50vw)";
 
 
 let timer;
-let ele = document.getElementById('timer');
+let timerElement = document.getElementById('timer');
 
 function startTimer(){
   var sec = 10;
   timer = setInterval(()=>{
-    ele.innerHTML = sec;
+    timerElement.innerHTML = sec;
     if (sec <= 0) {
       clearInterval(timer);
       currentQuestionIndex++;
@@ -113,6 +113,7 @@ function restartGame() {
   currentQuestionIndex = 0;
   shuffleArray(questions);
   startTimer();
+  updateQuestion()
 }
 
 function gameFinished() {
@@ -158,5 +159,4 @@ Array.from(choices).forEach((choiceElement, index) => {
 });
 
 startTimer();
-
 updateQuestion();
