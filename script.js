@@ -45,17 +45,15 @@ displayScore.textContent = score;
 document.body.appendChild(displayScore);
 
 let activeThumbsUp = document.querySelector(".thumbs-up-active");
-activeThumbsUp.style.transform = "translateX(50vw)";
 let activeThumbsDown = document.querySelector(".thumbs-down-active");
-activeThumbsDown.style.transform = "translateX(50vw)";
 
 function correctAnswer() {
   score++;
   currentQuestionIndex++;
   displayScore.textContent = score;
-  activeThumbsUp.style.transform = "translateX(0vw)";
+  activeThumbsUp.style.transform = "translateX(15vw)";
   setTimeout(function () {
-    activeThumbsUp.style.transform = "translateX(50vw)";
+    activeThumbsUp.style.transform = "translateX(0vw)";
   }, 1000);
 }
 

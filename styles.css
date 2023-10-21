@@ -78,13 +78,13 @@ body {
   position: absolute;
   height: 350px;
   top: 25vh;
-  right: 0;
+  left: -335px;
   z-index: 2;
   transition: transform 0.3s ease-in-out;
 }
 
 .thumbs-up-active {
-  transform: translate(50vw);
+  transform: translate(0vw);
 }
 
 .thumbs-down {
