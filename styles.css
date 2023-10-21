@@ -66,6 +66,6 @@
   z-index: 1;
 }
 
-.restart-btn:hover {
+#restart-btn:hover{
   cursor: pointer;
 }
