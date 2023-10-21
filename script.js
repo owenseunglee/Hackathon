@@ -31,31 +31,65 @@ const questions = [
   },
 ];
 
-
-
+const restartBtn = document.getElementById('restart-btn')
 const choices = document.querySelectorAll(".child-container");
 const question = document.getElementById('question')
+const gameEndPopup = document.querySelector('.game-end-popup');
+const overlay = document.querySelector('.overlay');
 let currentQuestionIndex = 0;
 let score = 0
-let currentIndex = 0
 
 let displayScore = document.createElement('div')
 displayScore.className = 'display-score'
 displayScore.textContent = score
 document.body.appendChild(displayScore)
 
-
-function incrementScore(){
+function incrementScore() {
   score++
   currentQuestionIndex++
-  question.textContent = questions[currentQuestionIndex].question;
   displayScore.textContent = score
 }
 
-Array.from(choices).forEach((choiceElement, index) => {
-  choiceElement.textContent = questions[currentQuestionIndex].choices[index];
-  question.textContent = questions[currentQuestionIndex].question;
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
+function restartGame() {
+  gameEndPopup.classList.add('hide')
+  overlay.classList.add('hide')
+  score = 0
+  displayScore.textContent = score
+  currentQuestionIndex = 0
+  shuffleArray(questions)
+  updateQuestion();
+}
+
+function gameFinished() {
+  gameEndPopup.classList.remove('hide');
+  overlay.classList.remove('hide');
+}
+
+function updateQuestion() {
+  if (currentQuestionIndex < questions.length) {
+    Array.from(choices).forEach((choiceElement, index) => {
+      choiceElement.textContent = questions[currentQuestionIndex].choices[index];
+      question.textContent = questions[currentQuestionIndex].question;
+    });
+  } else {
+    gameFinished()
+    console.log('Quiz Completed');
+  }
+}
+
+restartBtn.addEventListener('click', function () {
+  restartGame();
+  updateQuestion();
+});
+
+Array.from(choices).forEach((choiceElement, index) => {
   choiceElement.addEventListener("click", () => {
     if (questions[currentQuestionIndex].choices[index] === questions[currentQuestionIndex].correctAnswer) {
       console.log("Correct!");
@@ -63,13 +97,9 @@ Array.from(choices).forEach((choiceElement, index) => {
     } else {
       console.log("Incorrect!");
     }
-    if (currentQuestionIndex <= questions.length) {
-      Array.from(choices).forEach((choiceElement, index) => {
-        choiceElement.textContent = questions[currentQuestionIndex].choices[index];
-      });
-    } else {
-      console.log('Quiz Completed');
-    }
+    updateQuestion();
   });
 });
 
+// Reloads page for current question
+updateQuestion();
