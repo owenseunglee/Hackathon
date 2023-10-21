@@ -95,6 +95,11 @@ body {
   z-index: 2;
   transition: transform 0.3s ease-in-out;
 }
+@media (max-height:715px) {
+  .thumbs-down{
+    height:180px;
+  }  
+}
 
 .thumbs-down-active {
   transform: translate(50vw);
