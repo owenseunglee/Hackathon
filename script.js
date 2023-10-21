@@ -123,3 +123,19 @@ Array.from(choices).forEach((choiceElement, index) => {
 
 // Reloads page for current question
 updateQuestion();
+
+
+// fetch(`/get-questions`, {
+//   method:"GET",
+//   credentials: "include",
+//   cache:"no-cache",
+// })
+// .then(function (response) {
+//   if(response.status !== 200){
+//     console.log('Response status was not 200: ${response.status}');
+//     return;
+//   }
+//   response.json().then(function (data){
+//     console.log(data)
+//   })
+// })
