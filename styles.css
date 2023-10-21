@@ -51,6 +51,7 @@ body {
   opacity: 0.65;
   height: 100vh;
   width: 100vw;
+  z-index: 4;
 }
 
 .game-end-popup {
@@ -67,7 +68,7 @@ body {
   height: 250px;
   width: 250px;
   background-color: aqua;
-  z-index: 1;
+  z-index: 5;
 }
 
 #restart-btn:hover {
