@@ -37,6 +37,35 @@
   right: 15px;
 }
 
-.hide{
-    display: none;
+.hide {
+  display: none !important;
+}
+
+.overlay {
+  position: absolute;
+  background-color: gray;
+  opacity: 0.65;
+  height: 100vh;
+  width: 100vw;
+}
+
+.game-end-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: black;
+  height: 250px;
+  width: 250px;
+  background-color: aqua;
+  z-index: 1;
+}
+
+.restart-btn:hover {
+  cursor: pointer;
 }
