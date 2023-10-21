@@ -51,6 +51,7 @@ body {
   opacity: 0.65;
   height: 100vh;
   width: 100vw;
+  z-index: 4;
 }
 
 .game-end-popup {
@@ -67,7 +68,7 @@ body {
   height: 250px;
   width: 250px;
   background-color: aqua;
-  z-index: 1;
+  z-index: 5;
 }
 
 #restart-btn:hover {
@@ -89,11 +90,16 @@ body {
 
 .thumbs-down {
   position: absolute;
-  height: 350px;
+  height: 180px;
   top: 25vh;
   right: 0;
   z-index: 2;
   transition: transform 0.3s ease-in-out;
+}
+@media (min-height: 715px) {
+  .thumbs-down{
+    height:350px;
+  }  
 }
 
 .thumbs-down-active {
@@ -109,4 +115,22 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: lightgrey;
+}
+
+.restart-icon{
+  position: absolute;
+  top: 60px;
+  right: 7.5px;
+  height: 30px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.home-icon{
+  position: absolute;
+  top: 100px;
+  right: 7.5px;
+  height: 30px;
+  z-index: 3;
+  cursor: pointer;
 }
