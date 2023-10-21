@@ -48,11 +48,36 @@ let activeThumbsUp = document.querySelector(".thumbs-up-active");
 let activeThumbsDown = document.querySelector(".thumbs-down-active");
 const restartLevel = document.querySelector('.restart-icon')
 
+
+let timer;
+let timerElement = document.getElementById('timer');
+
+function startTimer(){
+  var sec = 10;
+  timer = setInterval(()=>{
+    timerElement.innerHTML = sec;
+    if (sec <= 0) {
+      clearInterval(timer);
+      currentQuestionIndex++;
+      updateQuestion();
+      if (currentQuestionIndex < questions.length) {
+        startTimer();
+      }
+    }
+    sec--;
+  }, 1000)
+}
+
 function correctAnswer() {
   score++;
   currentQuestionIndex++;
   displayScore.textContent = score;
   activeThumbsUp.style.transform = "translateX(15vw)";
+  
+  clearInterval(timer);
+  updateQuestion();
+  startTimer();
+
   setTimeout(function () {
     activeThumbsUp.style.transform = "translateX(0vw)";
   }, 1000);
@@ -61,9 +86,16 @@ function correctAnswer() {
 function wrongAnswer() {
   currentQuestionIndex++;
   activeThumbsDown.style.transform = "translateX(0vw)";
+  currentQuestionIndex++;
+
+  clearInterval(timer);
+  updateQuestion();
+  startTimer();
+
   setTimeout(function () {
     activeThumbsDown.style.transform = "translateX(50vw)";
   }, 1000);
+
 }
 
 function shuffleArray(array) {
@@ -80,7 +112,8 @@ function restartGame() {
   displayScore.textContent = score;
   currentQuestionIndex = 0;
   shuffleArray(questions);
-  updateQuestion();
+  startTimer();
+  updateQuestion()
 }
 
 function resetLevel() {
@@ -91,6 +124,7 @@ function resetLevel() {
 }
 
 function gameFinished() {
+  clearInterval(timer);
   gameEndPopup.classList.remove("hide");
   overlay.classList.remove("hide");
 }
@@ -123,6 +157,7 @@ Array.from(choices).forEach((choiceElement, index) => {
       let correctChoice = Array.from(choices).find((choice) =>
         choice.textContent.includes(questions[currentQuestionIndex].correctAnswer)
       );
+
       console.log(correctChoice);
       wrongAnswer();
     }
@@ -130,7 +165,7 @@ Array.from(choices).forEach((choiceElement, index) => {
   });
 });
 
-// Reloads page for current question
+startTimer();
 updateQuestion();
 
 restartLevel.addEventListener('click', () => {
