@@ -173,6 +173,11 @@ topics.forEach((topic) => {
   });
 });
 
+
+if (window.location.pathname.includes("homepage.html")){
+  localStorage.removeItem('current_topic');
+}
+
 if (window.location.pathname.includes("gameboard.html")) {
   const current_topic = JSON.parse(localStorage.getItem('current_topic'));
   const restartBtn = document.getElementById("restart-btn");
