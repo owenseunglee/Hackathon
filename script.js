@@ -20,7 +20,7 @@ const questions = [
   {
     index: 4,
     question: "Question 4",
-    choices: ["wrong", "wrong","correct", "wrong"],
+    choices: ["wrong", "wrong", "correct", "wrong"],
     correctAnswer: "correct",
   },
   {
@@ -31,23 +31,39 @@ const questions = [
   },
 ];
 
-const restartBtn = document.getElementById('restart-btn')
+const restartBtn = document.getElementById("restart-btn");
 const choices = document.querySelectorAll(".child-container");
-const question = document.getElementById('question')
-const gameEndPopup = document.querySelector('.game-end-popup');
-const overlay = document.querySelector('.overlay');
+const question = document.getElementById("question");
+const gameEndPopup = document.querySelector(".game-end-popup");
+const overlay = document.querySelector(".overlay");
 let currentQuestionIndex = 0;
-let score = 0
+let score = 0;
 
-let displayScore = document.createElement('div')
-displayScore.className = 'display-score'
-displayScore.textContent = score
-document.body.appendChild(displayScore)
+let displayScore = document.createElement("div");
+displayScore.className = "display-score";
+displayScore.textContent = score;
+document.body.appendChild(displayScore);
 
-function incrementScore() {
-  score++
-  currentQuestionIndex++
-  displayScore.textContent = score
+let activeThumbsUp = document.querySelector(".thumbs-up-active");
+activeThumbsUp.style.transform = "translateX(50vw)";
+let activeThumbsDown = document.querySelector(".thumbs-down-active");
+activeThumbsDown.style.transform = "translateX(50vw)";
+
+function correctAnswer() {
+  score++;
+  currentQuestionIndex++;
+  displayScore.textContent = score;
+  activeThumbsUp.style.transform = "translateX(0vw)";
+  setTimeout(function () {
+    activeThumbsUp.style.transform = "translateX(50vw)";
+  }, 1000);
+}
+
+function wrongAnswer() {
+  activeThumbsDown.style.transform = "translateX(0vw)";
+  setTimeout(function () {
+    activeThumbsDown.style.transform = "translateX(50vw)";
+  }, 1000);
 }
 
 function shuffleArray(array) {
@@ -58,44 +74,46 @@ function shuffleArray(array) {
 }
 
 function restartGame() {
-  gameEndPopup.classList.add('hide')
-  overlay.classList.add('hide')
-  score = 0
-  displayScore.textContent = score
-  currentQuestionIndex = 0
-  shuffleArray(questions)
+  gameEndPopup.classList.add("hide");
+  overlay.classList.add("hide");
+  score = 0;
+  displayScore.textContent = score;
+  currentQuestionIndex = 0;
+  shuffleArray(questions);
   updateQuestion();
 }
 
 function gameFinished() {
-  gameEndPopup.classList.remove('hide');
-  overlay.classList.remove('hide');
+  gameEndPopup.classList.remove("hide");
+  overlay.classList.remove("hide");
 }
 
 function updateQuestion() {
   if (currentQuestionIndex < questions.length) {
     Array.from(choices).forEach((choiceElement, index) => {
-      choiceElement.textContent = questions[currentQuestionIndex].choices[index];
+      choiceElement.textContent =
+        questions[currentQuestionIndex].choices[index];
       question.textContent = questions[currentQuestionIndex].question;
     });
   } else {
-    gameFinished()
-    console.log('Quiz Completed');
+    gameFinished();
   }
 }
 
-restartBtn.addEventListener('click', function () {
+restartBtn.addEventListener("click", function () {
   restartGame();
   updateQuestion();
 });
 
 Array.from(choices).forEach((choiceElement, index) => {
   choiceElement.addEventListener("click", () => {
-    if (questions[currentQuestionIndex].choices[index] === questions[currentQuestionIndex].correctAnswer) {
-      console.log("Correct!");
-      incrementScore()
+    if (
+      questions[currentQuestionIndex].choices[index] ===
+      questions[currentQuestionIndex].correctAnswer
+    ) {
+      correctAnswer();
     } else {
-      console.log("Incorrect!");
+      wrongAnswer();
     }
     updateQuestion();
   });

@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .container {
   display: grid;
   height: 100vh;
@@ -66,6 +70,32 @@
   z-index: 1;
 }
 
-#restart-btn:hover{
+#restart-btn:hover {
   cursor: pointer;
+}
+
+.thumbs-up {
+    position: absolute;
+    height: 350px;
+    top: 25vh;
+    right: 0;
+    z-index: 2;
+    transition: transform .3s ease-in-out;
+}
+
+.thumbs-up-active{
+    transform: translate(50vw)
+}
+
+.thumbs-down {
+    position: absolute;
+    height: 350px;
+    top: 25vh;
+    right: 0;
+    z-index: 2;
+    transition: transform .3s ease-in-out;
+}
+
+.thumbs-down-active{
+    transform: translate(50vw)
 }
