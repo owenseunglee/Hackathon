@@ -200,22 +200,22 @@ if (window.location.pathname.includes("gameboard.html")) {
   let activeThumbsDown = document.querySelector(".thumbs-down-active");
 
   let timer;
-  let timerElement = document.getElementById("timer");
-
-  function startTimer() {
+  let timerElement = document.getElementById('timer');
+  
+  function startTimer(){
     var sec = 10;
-    timer = setInterval(() => {
+    timer = setInterval(()=>{
       timerElement.innerHTML = sec;
-      if (sec <= 0) {
+      if (sec == 0) {
         clearInterval(timer);
-        currentQuestionIndex++;
-        updateQuestion();
         if (currentQuestionIndex < questions.length) {
           startTimer();
+          currentQuestionIndex++
+          updateQuestion()
         }
       }
       sec--;
-    }, 1000);
+    }, 1000)
   }
 
   function correctAnswer() {
@@ -223,23 +223,23 @@ if (window.location.pathname.includes("gameboard.html")) {
     currentQuestionIndex++;
     displayScore.textContent = score;
     activeThumbsUp.style.transform = "translateX(15vw)";
-    setTimeout(function () {
-      activeThumbsUp.style.transform = "translateX(0vw)";
-    }, 1000);
     clearInterval(timer);
     updateQuestion();
     startTimer();
+    setTimeout(function () {
+      activeThumbsUp.style.transform = "translateX(0vw)";
+    }, 1000);
   }
 
   function wrongAnswer() {
     currentQuestionIndex++;
     activeThumbsDown.style.transform = "translateX(0vw)";
-    setTimeout(function () {
-      activeThumbsDown.style.transform = "translateX(50vw)";
-    }, 1000);
     clearInterval(timer);
     updateQuestion();
     startTimer();
+    setTimeout(function () {
+      activeThumbsDown.style.transform = "translateX(50vw)";
+    }, 1000);
   }
 
   function shuffleArray(array) {
@@ -255,8 +255,9 @@ if (window.location.pathname.includes("gameboard.html")) {
     score = 0;
     displayScore.textContent = score;
     currentQuestionIndex = 0;
-    shuffleArray(current_topic);
-    updateQuestion();
+    shuffleArray(questions);
+    startTimer();
+    updateQuestion()
   }
 
   function resetLevel() {
@@ -312,6 +313,7 @@ if (window.location.pathname.includes("gameboard.html")) {
   // Reloads page for current question
   startTimer();
   updateQuestion();
+  
   restartLevel.addEventListener("click", () => {
     resetLevel();
   });
