@@ -161,8 +161,8 @@ const vocab_questions = [
   },
   {
     index: 3,
-    topic: 'What is the meaning of "contradict?"',
-    question: "Question 3",
+    topic: "Vocabulary",
+    question: "What is the meaning of 'contradict?'",
     choices: ["to agree with", "to support", "to assert the opposite", "to emphasize"],
     correctAnswer: "to assert the opposite",
   },
