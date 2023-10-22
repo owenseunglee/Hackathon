@@ -157,6 +157,7 @@ h1{
   top: 25vh;
   right: 0;
   z-index: 2;
+  scale:0;
   transition: transform 0.3s ease-in-out;
 }
 @media (min-height: 715px) {

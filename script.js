@@ -237,6 +237,7 @@ if (window.location.pathname.includes("gameboard.html")) {
 
   function wrongAnswer() {
     currentQuestionIndex++;
+    activeThumbsDown.style.scale = 1
     activeThumbsDown.style.transform = "translateX(0vw)";
     clearInterval(timer);
     updateQuestion();
