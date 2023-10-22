@@ -103,39 +103,35 @@ restartBtn.addEventListener("click", function () {
   updateQuestion();
 });
 
-Array.from(choices).forEach((choiceElement, index) => {
-  choiceElement.addEventListener("click", () => {
-    if (
-      questions[currentQuestionIndex].choices[index] ===
-      questions[currentQuestionIndex].correctAnswer
-    ) {
-      correctAnswer();
-    } else {
-      let correctChoice = Array.from(choices).find((choice) =>
-        choice.textContent.includes(questions[currentQuestionIndex].correctAnswer)
-      );
-      console.log(correctChoice);
-      wrongAnswer();
+
+fetch('http://localhost:3000/get-questions')
+.then(response => response.json())
+.then(data => {
+    console.log(data); 
+    for(let test in data){
+      console.log(data[test].correctAnswer)
     }
-    updateQuestion();
-  });
-});
+    Array.from(choices).forEach((choiceElement, index) => {
+      choiceElement.addEventListener("click", () => {
+        if (
+          questions[currentQuestionIndex].choices[index] ===
+          questions[currentQuestionIndex].correctAnswer
+        ) {
+          correctAnswer();
+        } else {
+          let correctChoice = Array.from(choices).find((choice) =>
+            choice.textContent.includes(questions[currentQuestionIndex].correctAnswer)
+          );
+          console.log(correctChoice);
+          wrongAnswer();
+        }
+        updateQuestion();
+      });
+    });
+
+
+})
+.catch(error => console.error('Error:', error));
 
 // Reloads page for current question
 updateQuestion();
-
-
-// fetch(`/get-questions`, {
-//   method:"GET",
-//   credentials: "include",
-//   cache:"no-cache",
-// })
-// .then(function (response) {
-//   if(response.status !== 200){
-//     console.log('Response status was not 200: ${response.status}');
-//     return;
-//   }
-//   response.json().then(function (data){
-//     console.log(data)
-//   })
-// })
