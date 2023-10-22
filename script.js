@@ -75,7 +75,7 @@ const history_questions = [
   {
     index: 1,
     topic: "History",
-    question: "Who was was the first American to win a Nobel Peace Prize?",
+    question: "Who was the first American to win a Nobel Peace Prize?",
     choices: ["Theodore Roosevelt", "Benjamin Franklin", "Thomas Edison", "F. Scott Fitzgerald"],
     correctAnswer: "Theodore Roosevelt",
   },
