@@ -7,9 +7,13 @@ python3 -m venv .venv
  <li>
    ~path/Hackathon/.venv/bin/python3 -m pip install --upgrade pip OR pip install (optional --upgrade pip)
  </li> 
+ <li> py -3 -m venv .venv </li>
  <li>
-   . .venv/bin/activate
+   . .venv/bin/activate -- MAC 
  </li> 
+ <li> </li>
+ <li> Set-ExecutionPolicy Unrestricted -Scope Process -- Windows</li>
+ <li> .venv\Scripts\activate </li>
   <li>
     export FLASK_APP=game.py
   </li>
