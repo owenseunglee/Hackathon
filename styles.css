@@ -25,7 +25,7 @@
 
 .child-container{
     width: 50vw;
-    font-size: 24px;
+    font-size: 32px !important;
     display:grid;
     justify-content: center;
     align-content: center;
@@ -119,6 +119,7 @@
   padding: 25px;
   align-items: center;
   border-radius: 10px;
+  border: 2px solid black;
 }
 
 .display-score {
@@ -320,4 +321,8 @@
   color: black;
   border-radius: 10px;
   box-shadow: 0 0 5px 5px rgba(60, 59, 59, 0.637);
+}
+
+.question-text{
+  text-align: center;
 }
