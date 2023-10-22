@@ -5,7 +5,7 @@
 python3 -m venv .venv
  </li> 
  <li>
-   ~path/Hackathon/.venv/bin/python3 -m pip install --upgrade pip
+   ~path/Hackathon/.venv/bin/python3 -m pip install --upgrade pip OR pip install (optional --upgrade pip)
  </li> 
  <li>
    . .venv/bin/activate
