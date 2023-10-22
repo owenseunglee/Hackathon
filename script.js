@@ -6,12 +6,12 @@ const topics = document.querySelectorAll(".topic-container");
 topics.forEach((topic) => {
   topic.addEventListener("click", () => {
     const topicTitle = topic.querySelector(".topic-title").textContent;
-    for(let category of data){
+    for(let category in data){
       if (
         topicTitle.trim().toLowerCase() ==
-        category[0].topic.trim().toLowerCase()
+        data[category][0].topic.trim().toLowerCase()
       ) {
-        current_topic = category;
+        current_topic = data[category];
         console.log(topicTitle);
         localStorage.setItem("current_topic", JSON.stringify(current_topic));
         window.location.href = "gameboard.html";
