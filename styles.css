@@ -1,20 +1,89 @@
-body {
-  overflow: hidden;
+*{
+  font-family: "Poppins"
 }
 
-.container {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+h1{
+    text-align: center;
+    color: white;
 }
 
-.child-container {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  cursor: pointer;
-  color: white;
+.container{
+    display:grid;
+    height: 100vh;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+
+.child-container{
+    width: 50vw;
+    font-size: 24px;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+}
+
+.topic-container{
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    border-style: solid;
+    border-radius: 3vh;
+    margin: 5vh;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.topic-container:hover{
+  box-shadow: 1vh 1vh 1vh gray;  
+}
+
+.icon-container{
+    justify-content: center;
+    height: 25vh;
+    width: 35vh;
+    align-content: center;
+    text-align: center;
+    font-size: 18px;
+}
+
+.icon-container:hover{
+  scale: 0.9
+}
+
+.cs-icon{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5vh;
+  display: block;
+  width: 50%;
+}
+
+.history-icon{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5vh;
+  display: block;
+  width: 50%;
+}
+
+.vocab-icon{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5vh;
+  display: block;
+  width: 50%;
+}
+
+.math-icon{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5vh;
+  margin-top: 2vh;
+  display: block;
+  width: 45%;
 }
 
 .child-container:hover {
@@ -27,18 +96,21 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 2em;
-
   color: black;
+  background-color: rgb(82, 206, 206);
+  height: 15vh;
+  width: 45vw;
+  padding: 25px;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .display-score {
   position: absolute;
   font-size: 28px;
-  top: 25px;
-  right: 15px;
+  top: 160px;
+  right: 13.5px
 }
 
 .hide {
@@ -51,6 +123,7 @@ body {
   opacity: 0.65;
   height: 100vh;
   width: 100vw;
+  z-index: 4;
 }
 
 .game-end-popup {
@@ -66,12 +139,29 @@ body {
   color: black;
   height: 250px;
   width: 250px;
-  background-color: aqua;
-  z-index: 1;
+  z-index: 5;
+}
+
+#restart-btn{
+  display: flex;
+  background-color: black;
+  color: white;
+  width: 175px;
+  height: 65px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 #restart-btn:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 25px gray;
+  scale: 1.1
+}
+
+#restart-btn:active{
+  box-shadow: inset 1vh 1vh 1vh rgba(57, 56, 56, 0.895);
 }
 
 .thumbs-up {
@@ -89,11 +179,17 @@ body {
 
 .thumbs-down {
   position: absolute;
-  height: 350px;
-  top: 25vh;
+  height: 180px;
+  top: 35vh;
   right: 0;
   z-index: 2;
+  scale:0;
   transition: transform 0.3s ease-in-out;
+}
+@media (min-height: 715px) {
+  .thumbs-down{
+    height:350px;
+  }  
 }
 
 .thumbs-down-active {
@@ -101,12 +197,112 @@ body {
 }
 
 .popup-container {
+  position: absolute;
   display: flex;
   padding: 10px;
-  height: 100%;
-  width: 100%;
+  width: 30vw;
+  height: 250px;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
   background-color: lightgrey;
+  border-radius: 15px;
+  justify-content: space-evenly;
+}
+
+#home-btn{
+  text-decoration: none;
+  color: black;
+}
+
+#timerClock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+  z-index: 9;
+  background-color: black;
+  color: white;
+  height: 85px;
+}
+
+.restart-icon{
+  position: absolute;
+  top: 90px;
+  right: 7.5px;
+  height: 30px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.restart-icon:hover{
+  scale: 1.1;
+}
+
+.home-icon{
+  position: absolute;
+  top: 125px;
+  right: 7.5px;
+  height: 30px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.home-icon:hover{
+  scale: 1.1;
+}
+
+#restart-btn{
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 55px;
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+}
+
+#home-btn{
+  color: black;
+  font-size: 24px;
+  margin: 5px;
+}
+
+#home-btn:hover{
+  text-decoration: underline;
+}
+
+#home-btn:active{
+  color: darkslategray;
+}
+
+.blink {
+  animation: blink 1s linear infinite;
+  -webkit-animation: blink 1s linear infinite;
+}
+@keyframes blink{
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+}
+
+#timer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 55px;
+  width: 55px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgba(60, 59, 59, 0.637);
 }
