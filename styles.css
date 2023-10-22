@@ -16,6 +16,7 @@ h1{
 
 .child-container{
     width: 50vw;
+    font-size: 24px;
     display:grid;
     justify-content: center;
     align-content: center;
@@ -90,11 +91,14 @@ h1{
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 2em;
-
   color: black;
+  background-color: rgb(82, 206, 206);
+  height: 15vh;
+  width: 45vw;
+  padding: 25px;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .display-score {
@@ -134,6 +138,18 @@ h1{
   z-index: 5;
 }
 
+#restart-btn{
+  display: flex;
+  background-color: black;
+  color: white;
+  width: 175px;
+  height: 65px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 #restart-btn:hover {
   cursor: pointer;
 }
@@ -171,20 +187,30 @@ h1{
 }
 
 .popup-container {
+  position: absolute;
   display: flex;
   padding: 10px;
   height: 100%;
-  width: 100%;
+  width: 30vw;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: lightgrey;
+  border-radius: 15px;
+}
+
+#home-btn{
+  text-decoration: none;
 }
 
 #timerClock{
-    text-align: center;
-    width: 100%;
-    background-color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+  z-index: 9;
+  background-color: red;
 }
 
 .restart-icon{
