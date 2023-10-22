@@ -132,12 +132,15 @@ h1{
   color: black;
   height: 250px;
   width: 250px;
-  background-color: aqua;
   z-index: 5;
 }
 
 #restart-btn:hover {
   cursor: pointer;
+}
+
+#restart-btn:active{
+  box-shadow: inset 1vh 1vh 1vh rgba(57, 56, 56, 0.895);
 }
 
 .thumbs-up {
@@ -180,6 +183,7 @@ h1{
   flex-direction: column;
   justify-content: center;
   background-color: lightgrey;
+  border-radius: 3vh;
 }
 
 #timerClock{
@@ -205,3 +209,13 @@ h1{
   z-index: 3;
   cursor: pointer;
 }
+
+#restart-btn{
+  border: solid;
+  border-radius: 3vh;
+  border-color: black;
+  background-color: black;
+  color: white;
+  padding: 2vh 3vh;
+}
+
