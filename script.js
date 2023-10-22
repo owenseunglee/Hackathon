@@ -441,10 +441,12 @@ if (window.location.pathname.includes("gameboard.html")) {
     updateQuestion();
   });
 
-  fetch('http://localhost:3000/get-questions')
+  fetch('http://localhost:3000/fetch-questions')
 .then(response => response.json())
 .then(data => {
   console.log(data)
+  for(let category of data)
+  console.log('category', category[0].topic)
   })
 
   Array.from(choices).forEach((choiceElement, index) => {
