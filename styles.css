@@ -205,16 +205,17 @@ h1{
 }
 
 .blink {
-  animation: blink-animation 1s steps(5, start) infinite;
-  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+  animation: blink 1s linear infinite;
+  -webkit-animation: blink 1s linear infinite;
 }
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
+@keyframes blink{
+  25% {
+    opacity: 0.5;
   }
-}
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
   }
 }
