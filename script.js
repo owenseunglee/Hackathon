@@ -51,7 +51,7 @@ const cs_questions = [
   {
     index: 8,
     topic: "Computer Science",
-    question: "WWhich data structure exhibits LIFO behavior?",
+    question: "Which data structure exhibits LIFO behavior?",
     choices: ["stack", "queue", "linked list", "binary tree"],
     correctAnswer: "stack",
   },
