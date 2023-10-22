@@ -206,9 +206,13 @@ if (window.location.pathname.includes("gameboard.html")) {
     var sec = 10;
     timer = setInterval(()=>{
       timerElement.innerHTML = sec;
+      if (sec <= 5){
+        timerElement.classList.add('blink')
+      }
       if (sec == 0) {
         clearInterval(timer);
         if (currentQuestionIndex < current_topic.length) {
+          timerElement.classList.remove('blink')
           startTimer();
           currentQuestionIndex++
           updateQuestion()
@@ -233,6 +237,7 @@ if (window.location.pathname.includes("gameboard.html")) {
 
   function wrongAnswer() {
     currentQuestionIndex++;
+    activeThumbsDown.style.scale = 1
     activeThumbsDown.style.transform = "translateX(0vw)";
     clearInterval(timer);
     updateQuestion();
