@@ -247,9 +247,15 @@ h1{
 }
 
 #home-btn{
-  color:black;
+  position: relative;
+  color: black;
   font-size: 23px;
   margin: 2vh;
+  bottom: 20px;
+}
+
+#home-btn:hover{
+  text-decoration: underline;
 }
 
 #home-btn:active{
