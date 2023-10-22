@@ -26,6 +26,7 @@ if (window.location.pathname.includes("homepage.html")) {
 
 if (window.location.pathname.includes("gameboard.html")) {
   const current_topic = JSON.parse(localStorage.getItem("current_topic"));
+  shuffleArray(current_topic);
   const restartBtn = document.getElementById("restart-btn");
   const choices = document.querySelectorAll(".child-container");
   const question = document.getElementById("question");
