@@ -2,10 +2,13 @@
   font-family: "Poppins"
 }
 
-h1{
+.title{
     text-align: center;
     color: white;
+    font-size: 50px;
+    font-weight:bolder;
 }
+
 
 .container{
     display:grid;
