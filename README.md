@@ -11,9 +11,8 @@ python3 -m venv .venv
  <li>
    . .venv/bin/activate -- MAC 
  </li> 
- <li> </li>
  <li> Set-ExecutionPolicy Unrestricted -Scope Process -- Windows</li>
- <li> .venv\Scripts\activate </li>
+ <li> .venv\Scripts\activate -- Windows </li>
   <li>
     export FLASK_APP=game.py
   </li>
