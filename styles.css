@@ -194,13 +194,13 @@ h1{
   position: absolute;
   display: flex;
   padding: 10px;
-  height: 100%;
   width: 30vw;
+  height: 250px;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
   background-color: lightgrey;
   border-radius: 15px;
+  justify-content: space-evenly;
 }
 
 #home-btn{
@@ -238,20 +238,18 @@ h1{
 }
 
 #restart-btn{
-  border: solid;
-  border-radius: 3vh;
-  border-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 55px;
   background-color: black;
   color: white;
-  padding: 2vh 3vh;
+  margin-top: 10px;
 }
 
 #home-btn{
-  position: relative;
   color: black;
-  font-size: 23px;
-  margin: 2vh;
-  bottom: 20px;
+  font-size: 24px;
+  margin: 5px;
 }
 
 #home-btn:hover{
