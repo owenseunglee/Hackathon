@@ -206,9 +206,13 @@ if (window.location.pathname.includes("gameboard.html")) {
     var sec = 10;
     timer = setInterval(()=>{
       timerElement.innerHTML = sec;
+      if (sec <= 5){
+        timerElement.classList.add('blink')
+      }
       if (sec == 0) {
         clearInterval(timer);
         if (currentQuestionIndex < current_topic.length) {
+          timerElement.classList.remove('blink')
           startTimer();
           currentQuestionIndex++
           updateQuestion()
