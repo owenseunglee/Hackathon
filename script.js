@@ -328,6 +328,7 @@ if (window.location.pathname.includes("gameboard.html")) {
   const gameEndPopup = document.querySelector(".game-end-popup");
   const overlay = document.querySelector(".overlay");
   const restartLevel = document.querySelector(".restart-icon");
+  const timerClock = document.getElementById('timerClock')
   let currentQuestionIndex = 0;
   let score = 0;
 
@@ -348,12 +349,14 @@ if (window.location.pathname.includes("gameboard.html")) {
       timerElement.innerHTML = sec;
       if (sec <= 5){
         timerElement.classList.add('blink')
+        timerClock.style.background = 'red'
       }
       if (sec == 0) {
         clearInterval(timer);
         if (currentQuestionIndex < current_topic.length) {
           timerElement.classList.remove('blink')
           startTimer();
+          timerClock.style.background = 'black'
           currentQuestionIndex++
           updateQuestion()
         }

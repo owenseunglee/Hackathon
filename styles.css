@@ -104,8 +104,8 @@ h1{
 .display-score {
   position: absolute;
   font-size: 28px;
-  top: 25px;
-  right: 15px;
+  top: 135px;
+  right: 13.5px
 }
 
 .hide {
@@ -201,6 +201,7 @@ h1{
 
 #home-btn{
   text-decoration: none;
+  color: black;
 }
 
 #timerClock{
@@ -210,7 +211,8 @@ h1{
   text-align: center;
   width: 100%;
   z-index: 9;
-  background-color: red;
+  background-color: black;
+  color: white;
 }
 
 .restart-icon{
