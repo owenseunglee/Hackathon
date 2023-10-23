@@ -2,9 +2,18 @@
   font-family: "Poppins"
 }
 
-h1{
+.title{
     text-align: center;
     color: white;
+    font-size: 50px;
+    font-weight:bolder;
+}
+
+.header-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .container{
@@ -16,7 +25,7 @@ h1{
 
 .child-container{
     width: 50vw;
-    font-size: 24px;
+    font-size: 32px !important;
     display:grid;
     justify-content: center;
     align-content: center;
@@ -59,6 +68,12 @@ h1{
   margin-bottom: 1.5vh;
   display: block;
   width: 50%;
+}
+
+.header-icon{
+  height: 75px;
+  width: 75px;
+  margin: 0px 15px;
 }
 
 .history-icon{
@@ -104,6 +119,7 @@ h1{
   padding: 25px;
   align-items: center;
   border-radius: 10px;
+  border: 2px solid black;
 }
 
 .display-score {
@@ -305,4 +321,8 @@ h1{
   color: black;
   border-radius: 10px;
   box-shadow: 0 0 5px 5px rgba(60, 59, 59, 0.637);
+}
+
+.question-text{
+  text-align: center;
 }

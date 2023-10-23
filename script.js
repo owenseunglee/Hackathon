@@ -30,6 +30,7 @@ if (window.location.pathname.includes("gameboard.html")) {
   const restartBtn = document.getElementById("restart-btn");
   const choices = document.querySelectorAll(".child-container");
   const question = document.getElementById("question");
+  const questionText = document.createElement('p')
   const gameEndPopup = document.querySelector(".game-end-popup");
   const overlay = document.querySelector(".overlay");
   const restartLevel = document.querySelector(".restart-icon");
@@ -134,7 +135,9 @@ if (window.location.pathname.includes("gameboard.html")) {
       Array.from(choices).forEach((choiceElement, index) => {
         choiceElement.textContent =
           current_topic[currentQuestionIndex].choices[index];
-        question.textContent = current_topic[currentQuestionIndex].question;
+          questionText.classList = 'question-text'
+        question.appendChild(questionText)
+        questionText.textContent = current_topic[currentQuestionIndex].question;
       });
     } else {
       gameFinished();
